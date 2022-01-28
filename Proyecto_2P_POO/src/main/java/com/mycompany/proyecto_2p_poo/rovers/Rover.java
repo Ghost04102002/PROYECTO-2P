@@ -17,5 +17,20 @@ public abstract class Rover implements RoverI {
         this.ubicacionx=ubicacionx;
         this.ubicaciony=ubicaciony;
     }
+   public String getNombre(){
+       return nombre;
+   }
+   public double getUbicacionx(){
+       return ubicacionx;
+   }
+   public double getUbicaciony(){
+       return ubicaciony;
+   }
+   public void setUbicacionx(double ubicacionx){
+       this.ubicacionx=ubicacionx;
+   }
+   public void setUbicaciony (double ubicaciony){
+       this.ubicaciony=ubicaciony;
+   }
     
 }
