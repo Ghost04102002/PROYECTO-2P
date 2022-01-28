@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
  *
  * @author samu_
  */
-public class RoversEnergiaSolar extends Rover{
+public abstract class RoversEnergiaSolar extends Rover{
     private ImageView img=null;
     public RoversEnergiaSolar(String nombre,double ubicacionx, double ubicaciony){
         super(nombre,ubicacionx,ubicaciony);
@@ -41,11 +41,13 @@ public class RoversEnergiaSolar extends Rover{
             this.y=y;
         }
         public void run(){
-            double angulo= Math.
+            double angulo= Math.atan(y/x)+img.getRotate();
+            girar(angulo);
             while (x!=img.getX() & y!=img.getY()){
-                
-                if (x!=img.getX()){
-                    
+                avanzar();
+                if (x==img.getX()){
+                    angulo=img.getRotate()+90;
+                    girar(angulo);
                 }
             }
                 
