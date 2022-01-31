@@ -15,16 +15,17 @@ public abstract class RoversEnergiaSolar extends Rover{
     public RoversEnergiaSolar(String nombre,double ubicacionx, double ubicaciony){
         super(nombre,ubicacionx,ubicaciony);
     }
-    public void avanzar(){
+    public void avanzar(int d){
         double angulo=img.getRotate();
-        double ubx=2*Math.cos(angulo);
-        double uby=2*Math.sin(angulo);
-        setUbicacionx(ubx);
-        setUbicaciony(uby);
-        img.setX(ubx);
-        img.setY(uby);
+        double ubx=d*Math.cos(angulo);
+        double uby=d*Math.sin(angulo);
+        setUbicacionx(getUbicacionx()+ubx);
+        setUbicaciony(getUbicaciony()+uby);
+        img.setX(getUbicacionx()+ubx);
+        img.setY(getUbicacionx()+ubx);
     }
     public void girar(double grados){
+        grados=Math.toRadians(grados);
         double angulo=img.getRotate();
         double nuevo=angulo-grados;
         img.setRotate(nuevo);
@@ -46,12 +47,15 @@ public abstract class RoversEnergiaSolar extends Rover{
             while (x!=img.getX() & y!=img.getY()){
                 avanzar();
                 if (x==img.getX()){
-                    angulo=img.getRotate()+90;
+                    angulo=img.getRotate()+Math.toRadians(90);
                     girar(angulo);
                 }
             }
                 
         }
     }
+    //public String sensar(){
+        
+    //}
     
 }

@@ -12,6 +12,7 @@ public abstract class Rover implements RoverI {
     private String nombre;
     private double ubicacionx;
     private double ubicaciony;
+    private int carga=100;
     public Rover(String nombre,double ubicacionx, double ubicaciony){
         this.nombre=nombre;
         this.ubicacionx=ubicacionx;
@@ -31,6 +32,15 @@ public abstract class Rover implements RoverI {
    }
    public void setUbicaciony (double ubicaciony){
        this.ubicaciony=ubicaciony;
+   }
+   public int getCarga(){
+       return carga;
+   }
+   public void setCarga(int carga){
+       this.carga=carga;
+   }
+   public void descargar(int pixelesavan){
+       this.carga=carga-(1*(pixelesavan/10));
    }
     
 }
